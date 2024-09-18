@@ -70,8 +70,9 @@ const Weather = () => {
   },[])
 
   const fetchCity = (e) => {
-    e.preventDefault(); // Prevent page reload
-    getCity(inputRef.current.value); // Get city value from input
+    e.preventDefault();
+    getCity(inputRef.current.value);
+    inputRef.current.value = "";
   };
 
   const convertToFahrenheit = () => {
