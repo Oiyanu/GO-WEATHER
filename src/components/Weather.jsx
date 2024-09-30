@@ -58,6 +58,7 @@ const Weather = () => {
         windSpeed: data.wind.speed,
         temperature: Math.floor(data.main.temp),
         location: data.name,
+        description: data.weather[0].description,
         icons: icons,
       });
     } catch (error) {
@@ -115,6 +116,7 @@ const Weather = () => {
             temperature: Math.floor(data.main.temp),
             location: data.name,
             icons: icons,
+            description: data.weather[0].description,
             latitude: data.coord.lat, // Store latitude
             longitude: data.coord.lon, // Store longitude
           });
@@ -150,6 +152,7 @@ const Weather = () => {
       </div>
       {weatherData?<>
       <img src={weatherData.icons} alt="" className='weather-icon'/>
+        <p className='description'>{weatherData.description}</p>
         <p className='location'>{weatherData.location.toUpperCase()}</p>
         <div className='temperature'>
           <span>{weatherData.temperature}</span>
